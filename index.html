@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yes-as-a-Service (now with insults!)</title>
+</head>
+<body>
+    <h1>Yes as a Service</h1>
+    <p><strong>One random insult:</strong> <span id="random"></span></p>
+    <button onclick="getInsult()">Get New Insult</button>
+    
+    <script>
+        async function getInsult() {
+            const response = await fetch('/api/insult/random');
+            const insult = await response.text();
+            document.getElementById('random').textContent = insult;
+        }
+        getInsult(); // Load one on page load
+    </script>
+</body>
+</html>
