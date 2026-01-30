@@ -6,8 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Read insults once on startup
-const rawData = JSON.parse(fs.readFileSync('./insults.json', 'utf8'));
-const insults = rawData.insults;
+const insults = JSON.parse(fs.readFileSync('./insults.json', 'utf8'));
 
 app.get('/', (req, res) => {
   const randomInsult = insults[Math.floor(Math.random() * insults.length)];
